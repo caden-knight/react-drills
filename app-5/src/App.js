@@ -1,26 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Image from './components/Image'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {  }
+  render() { 
+    return ( 
+      <div style={{width: '100%', height: "100vh", backgroundColor: 'black', }}>
+        <Image url="https://www.memesmonkey.com/images/memesmonkey/c2/c27c7ab822c73247342c0e39ab9f6bbb.png" />
+      </div>
+     );
+  }
 }
-
+ 
 export default App;
