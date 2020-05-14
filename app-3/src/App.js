@@ -1,38 +1,32 @@
-import React, { Component } from 'react';
-//import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+//import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
   constructor() {
-    super()
+    super();
+
     this.state = {
-      food: [
-        'cheese',
-        'toast',
-        'chips'
-      ],
-      userInput: ''
-
-    }
+      filterString: "",
+      heroes: ["spidey", "thor", "hulk", "captain america", "doctor strange"]
+    };
   }
 
-  inputChange(val) {
-    this.setState({
-      userInput: val
-    })
+  inputChange(filter) {
+    this.setState({ filterString: filter });
   }
-  findItems(str) {
-    
-  }
+
   render() {
-    console.log(this.state)
-    let food = this.state.food.map( (e, i) => <h2 key={i}>{e}</h2>)
+    let heroesToDisplay = this.state.heroes
+      .filter(e => e.includes(this.state.filterString))
+      .map( e => <h2 key={e}>{e}</h2>);
+
     return (
-      <div>
-        <input onChange={e => this.findItems(e.target.value)} />
-        <span>{ food }</span>
+      <div className="App">
+        <input onChange={e => this.inputChange(e.target.value)} />
+        {heroesToDisplay}
       </div>
-    )
+    );
   }
 }
 
